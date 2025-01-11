@@ -1,0 +1,543 @@
+/* Reset and Global Styles */
+* {
+  margin: 0; /* Reset default margin for all elements */
+  padding: 0; /* Reset default padding for all elements */
+  box-sizing: border-box; /* Include padding and border in element's width/height */
+}
+
+html,
+body {
+  height: 100%; /* Allow the body to fill the entire viewport height */
+  margin: 0; /* Remove any default margin for the body */
+}
+
+.wrapper {
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Stack child elements vertically */
+  min-height: 100vh; /* Ensure the wrapper fills at least the viewport height */
+}
+
+header,
+main {
+  flex: 1; /* Allow the header and main sections to grow and fill available space */
+}
+
+/* Navbar */
+.navbar {
+  display: flex; /* Use flexbox layout for the navbar */
+  position: relative; /* Position the navbar relative to its normal flow */
+  top: 0; /* Align the navbar to the top */
+  left: 0; /* Align the navbar to the left */
+  width: 100%; /* Make the navbar span the full width of the viewport */
+  z-index: 1000; /* Ensure the navbar appears above other elements */
+  justify-content: space-between; /* Distribute space between navbar items */
+  align-items: center; /* Vertically align items in the navbar */
+  padding: 1.5rem 2rem; /* Add padding inside the navbar */
+  background: #5c2fdb; /* Set the navbar's background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for a slight 3D effect */
+}
+
+/* Logo */
+.navbar .logo {
+  font-size: 2rem; /* Set a large font size for the logo */
+  font-weight: bold; /* Make the logo text bold */
+  color: white; /* Set the text color to white */
+  text-transform: uppercase; /* Transform text to uppercase */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+  font-family: 'Poppins', sans-serif; /* Use the Poppins font for the logo */
+}
+
+/* Center Align Links */
+.nav-links {
+  list-style: none; /* Remove default list styling */
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center-align the navigation links */
+  flex: 1; /* Allow navigation links to grow and occupy space */
+}
+
+.nav-links li {
+  margin: 0 1.5rem; /* Add horizontal spacing between links */
+  position: relative; /* Position relative for pseudo-elements */
+}
+
+/* Hide navigation links on mobile */
+.nav-links {
+  display: none; /* Initially hide links on smaller screens */
+}
+
+.nav-links a {
+  color: white; /* Set the link text color to white */
+  text-decoration: none; /* Remove underline from links */
+  font-size: 1.2rem; /* Set a medium font size for links */
+  font-weight: 500; /* Use medium font weight */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.nav-links a:hover {
+  color: #ffcc00; /* Change text color on hover */
+  text-shadow: 0 0 8px #ffcc00; /* Add glowing text shadow effect on hover */
+}
+
+.nav-links a::after {
+  content: ''; /* Add an empty pseudo-element after each link */
+  position: absolute; /* Position it absolutely within the link */
+  bottom: -5px; /* Position it slightly below the link text */
+  left: 50%; /* Center the pseudo-element horizontally */
+  width: 0; /* Initially, the line has zero width */
+  height: 2px; /* Set the height of the line */
+  background: #ffcc00; /* Set the line color */
+  transition: all 0.4s ease; /* Smooth transition for width and position */
+  transform: translateX(-50%); /* Center the line under the link */
+}
+
+.nav-links a:hover::after {
+  width: 100%; /* Expand the underline to full width on hover */
+}
+
+/* Hamburger Menu Icon */
+.menu-icon {
+  display: flex; /* Use flexbox layout for the menu icon */
+  flex-direction: column; /* Stack the bars vertically */
+  cursor: pointer; /* Show a pointer cursor on hover */
+  margin-right: 10px; /* Add margin to the right */
+}
+
+.menu-icon .bar {
+  width: 25px; /* Set the width of each bar */
+  height: 3px; /* Set the height of each bar */
+  background-color: #333; /* Set the color of the bars */
+  margin: 5px 0; /* Add vertical spacing between the bars */
+}
+
+/* User Menu Styles */
+.user-menu {
+  position: relative; /* Position the user menu relative to its normal position */
+}
+
+.user-menu .icon {
+  position: relative; /* Position the icon relative to its parent */
+  font-size: 1.5rem; /* Set the font size for the icon */
+  text-decoration: none; /* Remove text underline */
+  color: #ffffff; /* Set the icon color to white */
+}
+
+.cart-icon {
+  position: relative; /* Ensure the cart count is positioned relative to the cart icon */
+  display: inline-block; /* Keep the cart icon inline */
+  color: #fff; /* Set the cart icon color to white */
+}
+
+/* Adjust dropdown width */
+.user-menu .dropdown {
+  position: absolute; /* Position the dropdown absolutely */
+  top: 120%; /* Position below the user icon */
+  right: 0; /* Align it to the right of the user icon */
+  background: #f7f8f8; /* Set the background color */
+  border-radius: 5px; /* Round the corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a shadow for a subtle effect */
+  display: none; /* Initially hide the dropdown */
+  list-style: none; /* Remove list styling */
+  padding: 0.5rem 0; /* Add padding inside the dropdown */
+  z-index: 100; /* Ensure the dropdown appears above other content */
+  width: 90px; /* Set the width of the dropdown */
+}
+
+.user-menu .dropdown li {
+  padding: 0.5rem 1rem; /* Add padding inside each dropdown item */
+}
+
+.user-menu .dropdown li a {
+  color: #333; /* Set the link color to dark gray */
+  text-decoration: none; /* Remove text underline */
+  display: block; /* Ensure the link occupies the full width of the list item */
+  transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and color on hover */
+}
+
+.user-menu .dropdown li a:hover {
+  background: #007aff; /* Set background color on hover */
+  color: #fff; /* Change text color to white on hover */
+}
+
+/* Show dropdown on hover or click (for hover behavior) */
+.user-menu:hover .dropdown {
+  display: block; /* Display the dropdown when the user menu is hovered */
+}
+
+/* Icons Section */
+.icons {
+  display: flex; /* Use flexbox layout for the icons */
+  gap: 1.5rem; /* Add space between icons */
+}
+
+.icon {
+  color: white; /* Set the icon color to white */
+  font-size: 1.5rem; /* Set the icon size */
+  text-decoration: none; /* Remove text underline */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale on hover */
+}
+
+.icon:hover {
+  color: #ffcc00; /* Change icon color on hover */
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.cart-icon {
+  position: relative; /* Ensure the cart count is positioned relative to the cart icon */
+  display: inline-block; /* Keep the cart icon inline */
+}
+
+/* Login Form */
+.auth-form-container {
+  max-width: 450px; /* Set a maximum width for the form container */
+  margin: 80px auto; /* Center the form with a margin from the top */
+  padding: 10px 80px; /* Add padding inside the form */
+  background: linear-gradient(to bottom right, #007aff, #00c6ff); /* Background gradient */
+  color: white; /* Set the text color to white */
+  border-radius: 15px; /* Round the corners of the form */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  animation: fadeIn 0.6s ease-in-out; /* Animation for the form appearance */
+  text-align: center; /* Center the text inside the form */
+  margin-bottom: 220px; /* Add margin at the bottom of the form */
+}
+
+.auth-form-container h1 {
+  font-size: 2.5rem; /* Set the font size for the title */
+  font-weight: bold; /* Make the title bold */
+  margin-bottom: 20px; /* Add space below the title */
+  color: white; /* Set the title color to white */
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Add a shadow effect to the title */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Add space between form groups */
+  position: relative; /* Position form elements relative to each other */
+}
+
+label {
+  font-size: 1rem; /* Set the label font size */
+  font-weight: bold; /* Make the label bold */
+  color: white; /* Set the label color to white */
+  display: block; /* Display the label as a block */
+  margin-bottom: 8px; /* Add space below the label */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%; /* Set the input width to 100% */
+  padding: 12px; /* Add padding inside the input fields */
+  font-size: 1rem; /* Set the font size for input text */
+  color: #333; /* Set the input text color to dark gray */
+  background-color: #f8f9fa; /* Set a light background for input fields */
+  border: none; /* Remove default input border */
+  border-radius: 5px; /* Round the corners of input fields */
+  outline: none; /* Remove the outline when focusing on the input */
+  transition: all 0.3s ease; /* Smooth transition for input states */
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1); /* Add an inset shadow for depth */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border: 2px solid #00c6ff; /* Add a blue border on focus */
+  box-shadow: 0 0 8px rgba(0, 198, 255, 0.8); /* Add a glowing effect on focus */
+}
+
+button {
+  width: 100%; /* Make the button span the full width */
+  padding: 12px; /* Add padding inside the button */
+  background: linear-gradient(45deg, #000000, #000000); /* Set a black gradient background for the button */
+  color: white; /* Set the button text color to white */
+  font-size: 1.2rem; /* Set the font size of the button text */
+  font-weight: bold; /* Make the button text bold */
+  border: none; /* Remove the default button border */
+  border-radius: 8px; /* Round the button corners */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition for hover effects */
+  margin-bottom: 10px; /* Add space below the button */
+}
+
+button:hover {
+  transform: translateY(-3px); /* Slightly move the button upwards on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase the shadow on hover */
+}
+
+button:active {
+  transform: translateY(1px); /* Slightly move the button down on click */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Reduce the shadow on click */
+}
+
+/* Placeholder Styling */
+input::placeholder {
+  color: #aaa; /* Set the placeholder text color to light gray */
+  font-style: italic; /* Make the placeholder text italic */
+}
+
+/* Icons in Input Fields */
+input[type="text"]::before,
+input[type="email"]::before,
+input[type="password"]::before {
+  content: ''; /* Add an empty content before the input */
+  position: absolute; /* Position the icon absolutely within the input field */
+  left: 10px; /* Position the icon 10px from the left */
+  top: 12px; /* Position the icon 12px from the top */
+  font-size: 1.2rem; /* Set the icon font size */
+  color: #007aff; /* Set the icon color to blue */
+}
+
+/* Login Link Styling */
+.login-link {
+  color: #ffffff; /* Set the link color to white */
+  font-weight: bold; /* Make the link bold */
+  text-decoration: none; /* Remove underline from the link */
+  font-size: 0.9rem; /* Set the font size of the link */
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition for link hover effects */
+  text-decoration: underline; /* Add underline to the link */
+}
+
+.login-link:hover {
+  color: white; /* Change the link color to white on hover */
+  text-decoration-color: #ffffff; /* Set the underline color to white on hover */
+  text-decoration-thickness: 2px; /* Increase the thickness of the underline on hover */
+}
+
+/* Adding Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start with opacity 0 (invisible) */
+    transform: translateY(20px); /* Start 20px below the original position */
+  }
+
+  to {
+    opacity: 1; /* End with full opacity (visible) */
+    transform: translateY(0); /* End in the original position */
+  }
+}
+
+/* Footer */
+footer {
+  background: #222; /* Darker background for better contrast */
+  color: #fff; /* White text color */
+  padding: 2rem 1rem; /* Padding around the footer */
+  text-align: center; /* Center-align the text */
+  font-size: 1rem; /* Set the font size of the footer text */
+}
+
+footer p {
+  margin-bottom: 1rem; /* Add space below the paragraph */
+  font-size: 1rem; /* Set the font size for footer paragraph */
+}
+
+footer .social-links {
+  list-style: none; /* Remove default list styling */
+  display: flex; /* Display social links in a horizontal line */
+  justify-content: center; /* Center the social links */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+footer .social-links li {
+  margin: 0 10px; /* Add space between social links */
+}
+
+footer .social-links a {
+  color: #fff; /* Set the color of the social links to white */
+  font-size: 1.5rem; /* Set the font size for social media icons */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+footer .social-links a:hover {
+  color: #ffcc00; /* Change the color to yellow on hover */
+}
+
+/* Dropdown Menu */
+.dropdown {
+  display: none; /* Default state is hidden */
+  position: absolute; /* Position the dropdown relative to the parent */
+  top: 100%; /* Position it directly below the parent element */
+  right: 0; /* Align it to the right side */
+  background: white; /* Set a white background for the dropdown */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  list-style: none; /* Remove list styling */
+  padding: 10px 0; /* Add padding inside the dropdown */
+  z-index: 1000; /* Ensure the dropdown appears above other elements */
+}
+
+.dropdown.active {
+  display: block; /* Make the dropdown visible when 'active' class is added */
+}
+
+/* Mobile Styles */
+@media (max-width: 720px) {
+  body {
+    overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
+  }
+
+  .navbar {
+    width: 100%; /* Ensure navbar takes up full width */
+    height: 10%; /* Set a fixed height for the navbar */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space items between the left and right */
+    padding: 1rem 1.5rem; /* Add padding inside the navbar */
+  }
+
+  /* Toggle Nav Visibility */
+  .nav-links.active {
+    display: block; /* Show the navigation links when 'active' class is added */
+  }
+
+  .nav-links {
+    display: none; /* Hide the navigation links by default */
+    position: absolute; /* Position the links absolutely */
+    top: 60px; /* Place the links below the navbar */
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0); /* Set the background color to black */
+    text-align: center; /* Center-align the links */
+    padding: 1rem; /* Add padding inside the menu */
+  }
+
+  /* Style for Links in Mobile Menu */
+  .nav-links ul {
+    list-style: none; /* Remove bullet points from list */
+    padding: 0; /* Remove padding from the list */
+  }
+
+  .nav-links li {
+    margin: 1rem 0; /* Add vertical spacing between menu items */
+  }
+
+  .nav-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: #ffffff; /* Set the link color to white */
+    font-size: 1.2rem; /* Set font size for the links */
+  }
+
+  .icons {
+    display: none; /* Hide the icons section on mobile */
+  }
+
+  /* Form */
+  .auth-form-container {
+    width: 60%; /* Set form container width to 60% on mobile */
+    margin: 40px; /* Add margin around the form */
+    margin-left: 65px; /* Left margin to center the form */
+    margin-top: 60px; /* Add top margin */
+    padding: 20px; /* Add padding inside the form container */
+    box-sizing: border-box; /* Prevent padding from affecting width */
+  }
+
+  .auth-form-container h1 {
+    font-size: 1.5rem; /* Set font size for the heading */
+    text-align: center; /* Center-align the heading */
+    margin-bottom: 1rem; /* Add margin below the heading */
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem; /* Add margin below each form group */
+  }
+
+  .form-group input {
+    width: 100%; /* Make input fields take full width */
+    padding: 0.8rem; /* Add padding inside the input fields */
+    font-size: 1rem; /* Set font size for the input text */
+    margin-top: 0.5rem; /* Add top margin to input fields */
+  }
+
+  .form-group button {
+    width: 100%; /* Make the button take full width */
+    padding: 1rem; /* Add padding inside the button */
+    font-size: 1.2rem; /* Set font size for the button text */
+    background-color: #5c2fdb; /* Set background color for the button */
+    color: white; /* Set the button text color to white */
+    border: none; /* Remove the border from the button */
+    border-radius: 5px; /* Add rounded corners to the button */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+  }
+
+  .form-group button:hover {
+    background-color: #4b1ca1; /* Darken the button background on hover */
+  }
+
+  /* Footer */
+  footer {
+    width: 100%; /* Ensure the footer takes up full width */
+    padding: 20px 0; /* Add vertical padding inside the footer */
+    margin-top: 111px; /* Add top margin to push the footer down */
+    text-align: center; /* Center-align the footer text */
+  }
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+
+  /* Navbar */
+  .navbar {
+    padding: 1.5rem 2rem; /* Adjust padding for desktop */
+  }
+
+  .nav-links {
+    display: flex; /* Use flexbox for desktop navbar */
+    justify-content: center; /* Center-align the navigation links */
+  }
+
+  .nav-links li {
+    margin: 0 2rem; /* Add horizontal spacing between menu items */
+  }
+
+  .nav-links a {
+    font-size: 1.2rem; /* Set font size for links */
+  }
+
+  .icons {
+    display: flex; /* Display icons in a flex container */
+    justify-content: flex-end; /* Align icons to the right */
+  }
+
+  .menu-icon {
+    display: none; /* Hide the menu icon on desktop */
+  }
+
+  /* Form */
+  .auth-form-container {
+    width: 50%; /* Set form container width to 50% on desktop */
+    margin: 150px auto; /* Center the form container with top margin */
+    padding: 2rem; /* Add padding inside the form container */
+  }
+
+  .auth-form-container h1 {
+    font-size: 2rem; /* Set font size for the form heading */
+    text-align: center; /* Center-align the form heading */
+    margin-bottom: 2rem; /* Add margin below the heading */
+  }
+
+  .form-group {
+    margin-bottom: 2rem; /* Add vertical spacing between form groups */
+  }
+
+  .form-group input {
+    width: 100%; /* Make the input fields take full width */
+    padding: 1rem; /* Add padding inside the input fields */
+    font-size: 1.2rem; /* Set font size for the input text */
+  }
+
+  .form-group button {
+    width: 100%; /* Make the button take full width */
+    padding: 1.2rem; /* Add padding inside the button */
+    font-size: 1.2rem; /* Set font size for the button text */
+    background-color: #5c2fdb; /* Set the background color for the button */
+    color: white; /* Set the button text color to white */
+    border: none; /* Remove the border from the button */
+    border-radius: 5px; /* Add rounded corners to the button */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+  }
+
+  .form-group button:hover {
+    background-color: #4b1ca1; /* Darken the button background on hover */
+  }
+
+  footer {
+    margin-top: 240px; /* Add a larger top margin to push the footer down */
+  }
+}
