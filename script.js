@@ -36,7 +36,7 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
 
     try {
         // Send form data to the server using a POST request
-        const response = await fetch("https://tech-mart-github-pthgu1fiu-sadaffatima1906s-projects.vercel.app/api/contact", {
+        const response = await fetch("http://localhost:4000/api/contact", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, message })
