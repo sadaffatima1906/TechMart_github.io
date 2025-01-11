@@ -2,15 +2,18 @@ import express from 'express'; // Importing Express for creating the server
 import mongoose from 'mongoose'; // Importing Mongoose for interacting with MongoDB
 import dotenv from 'dotenv'; // Importing dotenv for loading environment variables
 import cors from 'cors'; // Importing CORS middleware for handling cross-origin requests
-import userRoutes from './routes/userRoutes.js'; // Importing user routes
-import contactRoutes from './routes/contactRoutes.js'; // Importing contact routes
+import userRoutes from './api/userRoutes.js'; // Importing user routes
+import contactRoutes from './api/contact.js'; // Importing contact routes
 
 dotenv.config(); // Loading environment variables from the .env file
 
 const app = express(); // Creating an instance of the Express application
 const port = 4000; // Defining the port on which the server will run
 
-app.use(cors()); // Enabling CORS for the app
+app.use(cors({
+    origin: 'https://tech-mart-github-pthgu1fiu-sadaffatima1906s-projects.vercel.app', // Replace with your frontend URL
+    methods: ['GET', 'POST'],
+}));
 app.use(express.json()); // Parsing incoming JSON data
 app.use('/api/user', userRoutes); // Setting up user routes under '/api/user'
 app.use('/api/contact', contactRoutes); // Setting up contact routes under '/api/contact'
