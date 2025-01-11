@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to external CSS for styling -->
+    <link rel="stylesheet" href="/Frontend/login.css">
+</head>
+
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">TechMart</div>
+            <!-- Hamburger Menu Icon for mobile -->
+            <div class="menu-icon" onclick="toggleNav()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="/index.html#home">Home</a></li>
+                <li><a href="/index.html#about">About Us</a></li>
+                <li><a href="/index.html#products">Products</a></li>
+                <li><a href="/index.html#contact">Contact</a></li>
+            </ul>
+            <!-- Icons (Cart and User menu) -->
+            <div class="icons">
+                <!-- Cart Icon -->
+                <a href="#cart" class="icon cart-icon" aria-label="Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <!-- User Icon with Dropdown Menu -->
+                <div class="user-menu">
+                    <a href="#" id="userIcon" class="icon user-icon" aria-label="User">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <!-- Dropdown menu with links for Sign Up and Log In -->
+                    <ul class="dropdown" id="dropdownMenu">
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="login.html">Log In</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Authentication Form Container -->
+    <div class="auth-form-container">
+        <h1>Log In</h1>
+        <form id="log-in-form">
+            <!-- Email Input Field -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <!-- Password Input Field -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Log In</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Login Success Message Box (Hidden by Default) -->
+    <div id="login-success" class="message-box" style="display: none;">
+        <p>Login Successful!</p>
+        <button id="close-btn">Close</button>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TechMart. All rights reserved.</p>
+            <!-- Social Media Links -->
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook-f" aria-label="Facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter" aria-label="Twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram" aria-label="Instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in" aria-label="LinkedIn"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Script for Handling Login Form Submission -->
+    <script>
+        const loginForm = document.getElementById('log-in-form');
+
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Send login request to the backend API
+            const response = await fetch('http://localhost:4000/api/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                }),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert('Login successful!'); // Show success message
+                window.location.href = '/index.html'; // Redirect to index.html in the Frontend folder
+            } else {
+                alert(`Error: ${result.message}`); // Show error message if login fails
+            }
+        });
+    </script>
+
+    <!-- Script for Toggling User Dropdown Menu -->
+    <script>
+        document.getElementById("userIcon").addEventListener("click", (e) => {
+            e.preventDefault(); // Prevent the default link action
+            const dropdownMenu = document.getElementById("dropdownMenu");
+            dropdownMenu.classList.toggle("active"); // Toggle the dropdown visibility
+        });
+
+        document.addEventListener("click", (e) => {
+            const dropdownMenu = document.getElementById("dropdownMenu");
+            const userIcon = document.getElementById("userIcon");
+            // Close the dropdown if click is outside of the dropdown and user icon
+            if (!dropdownMenu.contains(e.target) && !userIcon.contains(e.target)) {
+                dropdownMenu.classList.remove("active");
+            }
+        });
+    </script>
+
+    <!-- Script for Toggling Navigation Links Visibility (for Mobile) -->
+    <script>
+        function toggleNav() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active'); // Toggle navigation visibility
+        }
+    </script>
+
+    <!-- External JavaScript for additional functionality -->
+    <script src="Frontend/script.js"></script>
+
+</body>
+
+</html>
