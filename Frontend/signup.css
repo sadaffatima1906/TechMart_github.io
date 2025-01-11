@@ -1,0 +1,600 @@
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Default font */
+  line-height: 1.6; /* Line height for better readability */
+  color: #333; /* Text color */
+  scroll-behavior: smooth; /* Smooth scrolling when navigating within the page */
+}
+
+/* Navbar */
+.navbar {
+  display: flex; /* Use flexbox for positioning items */
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the screen */
+  z-index: 1000; /* Ensures navbar stays on top of other content */
+  justify-content: space-between; /* Spaces out logo and navigation links */
+  align-items: center; /* Centers the items vertically */
+  padding: 1.5rem 2rem; /* Padding for spacing */
+  background: #5c2fdb; /* Dark purple background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+}
+
+/* Logo */
+.navbar .logo {
+  font-size: 2rem; /* Larger font size for logo */
+  font-weight: bold; /* Bold text for emphasis */
+  color: white; /* White color for logo text */
+  text-transform: uppercase; /* Uppercase letters for the logo */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow effect for depth */
+  font-family: 'Poppins', sans-serif; /* Custom font for the logo */
+}
+
+/* Center Align Links */
+.nav-links {
+  list-style: none; /* Removes default list styling */
+  display: flex; /* Use flexbox to arrange links */
+  justify-content: center; /* Center align the links */
+  flex: 1; /* Ensures the nav-links take up available space */
+  display: none; /* Initially hide the navigation links (for mobile) */
+}
+
+.nav-links li {
+  margin: 0 1.5rem; /* Horizontal spacing between the links */
+  position: relative; /* Relative positioning for pseudo-elements */
+}
+
+.nav-links a {
+  color: white; /* White text color for links */
+  text-decoration: none; /* Removes underline from links */
+  font-size: 1.2rem; /* Set font size */
+  font-weight: 500; /* Medium font weight */
+  transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+.nav-links a:hover {
+  color: #ffcc00; /* Change link color on hover */
+  text-shadow: 0 0 8px #ffcc00; /* Add glow effect on hover */
+}
+
+.nav-links a::after {
+  content: ''; /* Adds an empty pseudo-element */
+  position: absolute;
+  bottom: -5px; /* Position below the link */
+  left: 50%; /* Align in the center of the link */
+  width: 0; /* Initially set width to 0 */
+  height: 2px; /* Thin line for the underline effect */
+  background: #ffcc00; /* Yellow color for the underline */
+  transition: all 0.4s ease; /* Smooth transition for the underline width */
+  transform: translateX(-50%); /* Center the underline */
+}
+
+.nav-links a:hover::after {
+  width: 100%; /* Make the underline span across the whole width of the link on hover */
+}
+
+/* Hamburger Menu Icon */
+.menu-icon {
+  display: flex; /* Use flexbox to stack the bars */
+  flex-direction: column; /* Stack the bars vertically */
+  cursor: pointer; /* Pointer cursor to indicate clickable area */
+}
+
+.menu-icon .bar {
+  width: 25px; /* Width of each bar */
+  height: 3px; /* Height of each bar */
+  background-color: #333; /* Dark color for the bars */
+  margin: 5px 0; /* Vertical spacing between the bars */
+}
+
+/* User Menu Styles */
+.user-menu {
+  position: relative; /* Positioning the user menu relative to its container */
+}
+
+.user-menu .icon {
+  position: relative; /* Position the icon relative to its container */
+  font-size: 1.5rem; /* Icon size */
+  text-decoration: none; /* Remove underline from the icon */
+  color: #ffffff; /* White color for the icon */
+}
+
+/* Adjust dropdown width */
+.user-menu .dropdown {
+  position: absolute; /* Position the dropdown relative to the user menu icon */
+  top: 120%; /* Position the dropdown just below the icon */
+  right: 0; /* Align to the right of the parent container */
+  background: #f7f8f8; /* Light background color */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
+  display: none; /* Initially hidden */
+  list-style: none; /* Remove default list styling */
+  padding: 0.5rem 0; /* Padding for dropdown items */
+  z-index: 100; /* Ensure the dropdown is above other elements */
+  width: 90px; /* Fixed width for dropdown */
+}
+
+.user-menu .dropdown li {
+  padding: 0.5rem 1rem; /* Padding for each list item in the dropdown */
+}
+
+.user-menu .dropdown li a {
+  color: #333; /* Text color for dropdown links */
+  text-decoration: none; /* Remove underline from links */
+  display: block; /* Make links block-level for proper spacing */
+  transition: background 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+}
+
+.user-menu .dropdown li a:hover {
+  background: #007aff; /* Change background on hover */
+  color: #fff; /* Change text color on hover */
+}
+
+/* Show dropdown on hover or click (for hover behavior) */
+.user-menu:hover .dropdown {
+  display: block; /* Show dropdown on hover */
+}
+
+/* Ensure dropdown is toggled correctly with JS */
+.user-menu .dropdown.active {
+  display: block; /* Show dropdown when 'active' class is added by JS */
+}
+
+.dropdown {
+  display: none; /* Default state is hidden */
+  position: absolute; /* Position the dropdown below the icon */
+  top: 100%; /* Align the dropdown below the trigger */
+  right: 0; /* Align to the right of the parent container */
+  background: white; /* White background for the dropdown */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+  list-style: none; /* Remove default list styling */
+  padding: 10px 0; /* Padding for dropdown items */
+  z-index: 1000; /* Ensure the dropdown is above other elements */
+}
+
+.dropdown.active {
+  display: block; /* Make it visible when 'active' class is added */
+}
+
+/* Icons Section */
+.icons {
+  display: flex; /* Use flexbox to arrange icons */
+  gap: 1.5rem; /* Space between icons */
+}
+
+.icon {
+  color: white; /* White color for the icon */
+  font-size: 1.5rem; /* Icon size */
+  text-decoration: none; /* Remove underline from the icon */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.icon:hover {
+  color: #ffcc00; /* Change color on hover */
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.cart-icon {
+  position: relative; /* Ensure the cart count is positioned relative to the cart icon */
+  display: inline-block; /* Keep the cart icon properly inline */
+}
+
+/* Footer */
+footer {
+  background: #222; /* Darker background for better contrast */
+  color: #fff; /* White text color */
+  padding: 2rem 1rem; /* Padding for footer content */
+  text-align: center; /* Center align text */
+  font-size: 1rem; /* Font size for footer text */
+}
+
+footer p {
+  margin-bottom: 1rem; /* Margin for paragraph elements */
+  font-size: 1rem; /* Font size for paragraph text */
+}
+
+footer .social-links {
+  list-style: none; /* Remove default list styling */
+  display: flex; /* Use flexbox to arrange the social links */
+  justify-content: center; /* Center align social links */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+footer .social-links li {
+  margin: 0 10px; /* Space between social links */
+}
+
+footer .social-links a {
+  color: #fff; /* White color for social link text */
+  font-size: 1.5rem; /* Font size for social links */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+footer .social-links a:hover {
+  color: #00BFFF; /* Brighter blue for hover effect */
+}
+
+footer .container {
+  max-width: 1200px; /* Maximum width for the footer container */
+  margin: 0 auto; /* Center align the footer container */
+}
+
+footer .social-links i {
+  vertical-align: middle; /* Ensures proper alignment for icons */
+}
+
+/* Animations for Logo and Nav */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start with 0 opacity */
+    transform: translateY(-20px); /* Start with a slight upward movement */
+  }
+
+  to {
+    opacity: 1; /* End with full opacity */
+    transform: translateY(0); /* End at the normal position */
+  }
+}
+
+.navbar .logo {
+  animation: fadeIn 1s ease-out; /* Apply fadeIn animation to the logo */
+}
+
+.nav-links a {
+  animation: fadeIn 1.5s ease-out; /* Apply fadeIn animation to the nav links */
+  animation-delay: 0.5s; /* Delay the animation by 0.5s */
+}
+
+/* Signup Form */
+.auth-form-container {
+  max-width: 450px; /* Maximum width for the form container */
+  margin: 80px auto; /* Center the form container with margin */
+  padding: 10px 80px; /* Padding for the form container */
+  background: linear-gradient(to bottom right, #007aff, #00c6ff); /* Gradient background */
+  color: white; /* White text color */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Shadow effect for the form */
+  animation: fadeIn 0.6s ease-in-out; /* FadeIn animation for form */
+  text-align: center; /* Center align text in the form */
+}
+
+.auth-form-container h1 {
+  font-size: 2.5rem; /* Font size for the form title */
+  font-weight: bold; /* Bold font weight for the form title */
+  margin-bottom: 20px; /* Bottom margin for spacing */
+  color: white; /* White color for the form title */
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Text shadow for a soft effect */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Bottom margin for each form group */
+  position: relative; /* Relative position for positioning labels */
+}
+
+label {
+  font-size: 1rem; /* Font size for labels */
+  font-weight: bold; /* Bold font weight for labels */
+  color: white; /* White color for labels */
+  display: block; /* Block-level display for labels */
+  margin-bottom: 8px; /* Bottom margin for spacing */
+}
+
+/* Style for text, email, and password input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%; /* Full width for the input fields */
+  padding: 12px; /* Padding inside the input fields */
+  font-size: 1rem; /* Font size for the input text */
+  color: #333; /* Text color */
+  background-color: #f8f9fa; /* Light background color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  outline: none; /* Remove outline when focused */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+/* Focused input fields style */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border: 2px solid #00c6ff; /* Blue border on focus */
+  box-shadow: 0 0 8px rgba(0, 198, 255, 0.8); /* Blue glow on focus */
+}
+
+/* Button styling */
+button {
+  width: 100%; /* Full width for the button */
+  padding: 12px; /* Padding inside the button */
+  background: linear-gradient(45deg, #000000, #000000); /* Black gradient background */
+  color: white; /* White text color */
+  font-size: 1.2rem; /* Font size for button text */
+  font-weight: bold; /* Bold text */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Shadow for button */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+  margin-bottom: 10px; /* Margin at the bottom */
+}
+
+/* Hover effect for button */
+button:hover {
+  transform: translateY(-3px); /* Lift the button slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+/* Active state for button */
+button:active {
+  transform: translateY(1px); /* Slightly press down the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Lighter shadow on click */
+}
+
+/* Placeholder styling for input fields */
+input::placeholder {
+  color: #aaa; /* Gray color for placeholder text */
+  font-style: italic; /* Italicize the placeholder text */
+}
+
+/* Icons inside input fields */
+input[type="text"]::before,
+input[type="email"]::before,
+input[type="password"]::before {
+  content: ''; /* Empty content for icon */
+  position: absolute; /* Absolute positioning */
+  left: 10px; /* Position to the left inside the input */
+  top: 12px; /* Position slightly downwards */
+  font-size: 1.2rem; /* Font size for the icon */
+  color: #007aff; /* Blue color for the icon */
+}
+
+/* Login link styling */
+.login-link {
+  color: #ffffff; /* White color for the link */
+  font-weight: bold; /* Bold text for the link */
+  text-decoration: none; /* Remove default underline */
+  font-size: 0.9rem; /* Smaller font size */
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition on hover */
+  text-decoration: underline; /* Underline the link */
+}
+
+/* Hover effect for login link */
+.login-link:hover {
+  color: white; /* Change color to white */
+  text-decoration-color: #ffffff; /* Custom underline color */
+  text-decoration-thickness: 2px; /* Thicker underline */
+}
+
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start with 0 opacity */
+    transform: translateY(20px); /* Start from 20px below */
+  }
+
+  to {
+    opacity: 1; /* End with full opacity */
+    transform: translateY(0); /* End at the normal position */
+  }
+}
+
+/* Mobile Styles (360px - 720px) */
+@media (max-width: 720px) {
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Navbar styling for mobile */
+  .navbar {
+    width: 100%; /* Full width for navbar */
+    height: 10%; /* Set height of navbar */
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between navbar items */
+    padding: 1rem 1.5rem; /* Padding inside navbar */
+  }
+
+  /* Toggle visibility of navbar links */
+  .nav-links.active {
+    display: block; /* Show nav links when active */
+  }
+
+  /* Style for hidden navbar links by default */
+  .nav-links {
+    display: none; /* Hide nav links by default */
+    position: absolute; /* Position links absolutely */
+    top: 60px; /* Position below the navbar */
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0); /* Dark background */
+    text-align: center; /* Center text inside links */
+    padding: 1rem; /* Add padding to the menu */
+  }
+
+  /* Styling for list inside mobile menu */
+  .nav-links ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+  }
+
+  /* Styling for list items inside the mobile menu */
+  .nav-links li {
+    margin: 1rem 0; /* Space between items */
+  }
+
+  /* Styling for the links inside the mobile menu */
+  .nav-links a {
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* White text color */
+    font-size: 1.2rem; /* Larger font size for mobile */
+  }
+
+  /* Hide social media icons in mobile view */
+  .icons {
+    display: none;
+  }
+
+  /* Form container styling for mobile */
+  .auth-form-container {
+    width: 80%; /* Set form width */
+    margin: 40px auto; /* Center the form */
+    padding: 10px; /* Add padding inside the form */
+    box-sizing: border-box; /* Ensure padding does not affect width */
+  }
+
+  /* Heading style in the form */
+  .auth-form-container h1 {
+    font-size: 1.5rem; /* Smaller heading size for mobile */
+    text-align: center; /* Center align the heading */
+    margin-bottom: 1rem; /* Space below heading */
+  }
+
+  /* Form group styling */
+  .form-group {
+    margin-bottom: 1.5rem; /* Space between form elements */
+  }
+
+  /* Input field styling within the form */
+  .form-group input {
+    width: 100%; /* Full width for input fields */
+    padding: 0.8rem; /* Padding inside input fields */
+    font-size: 1rem; /* Font size for input text */
+    margin-top: 0.5rem; /* Space above input fields */
+  }
+
+  /* Button styling inside form */
+  .form-group button {
+    width: 100%; /* Full width for button */
+    padding: 1rem; /* Padding inside button */
+    font-size: 1.2rem; /* Font size for button text */
+    background-color: #5c2fdb; /* Button background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+
+  /* Button hover effect */
+  .form-group button:hover {
+    background-color: #4b1ca1; /* Darker shade on hover */
+  }
+
+  /* Login link styling for mobile */
+  .login-link {
+    text-align: center; /* Center align the link */
+    font-size: 1rem; /* Font size for the link */
+    display: block; /* Display the link as a block element */
+    margin-top: 1rem; /* Space above the link */
+  }
+
+  /* Footer styling for mobile */
+  footer {
+    width: 100%; /* Full width for footer */
+    margin: 0 auto; /* Center the footer */
+    padding: 20px 0; /* Padding inside footer */
+  }
+
+  /* Adjust login link font size in mobile view */
+  .login-link {
+    font-size: 1.2rem; /* Larger font size for the link */
+  }
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+
+  /* Navbar styling for desktop */
+  .navbar {
+    padding: 1.5rem 2rem; /* Increased padding for desktop */
+  }
+
+  /* Navigation links style for desktop */
+  .nav-links {
+    display: flex; /* Use flexbox to display links horizontally */
+    justify-content: center; /* Center the links horizontally */
+  }
+
+  /* Spacing between navigation list items */
+  .nav-links li {
+    margin: 0 2rem; /* Space between list items */
+  }
+
+  /* Font size for navigation links on desktop */
+  .nav-links a {
+    font-size: 1.2rem; /* Larger font size for desktop */
+  }
+
+  /* Styling for icons in the navbar (on desktop) */
+  .icons {
+    display: flex; /* Use flexbox for icon layout */
+    justify-content: flex-end; /* Align icons to the right */
+  }
+
+  /* Hides menu icon on desktop */
+  .menu-icon {
+    display: none; /* Remove the menu icon on desktop */
+  }
+
+  /* Form container styling for desktop */
+  .auth-form-container {
+    width: 50%; /* Set form width to 50% of the screen */
+    margin: 50px auto; /* Center form with top margin */
+    margin-top: 80px; /* Additional top margin */
+    padding: 2rem; /* Padding inside the form */
+  }
+
+  /* Heading style inside form */
+  .auth-form-container h1 {
+    font-size: 2rem; /* Larger heading font size for desktop */
+    text-align: center; /* Center align the heading */
+    margin-bottom: 2rem; /* Space below the heading */
+  }
+
+  /* Form group margin for desktop */
+  .form-group {
+    margin-bottom: 2rem; /* Increase space between form groups */
+  }
+
+  /* Input field styling inside form */
+  .form-group input {
+    width: 100%; /* Full width for input fields */
+    padding: 1rem; /* Padding inside input fields */
+    font-size: 1.2rem; /* Larger font size for desktop inputs */
+  }
+
+  /* Button styling inside form */
+  .form-group button {
+    width: 100%; /* Full width for button */
+    padding: 1.2rem; /* Increased padding inside button */
+    font-size: 1.2rem; /* Button font size */
+    background-color: #5c2fdb; /* Button background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+
+  /* Button hover effect */
+  .form-group button:hover {
+    background-color: #4b1ca1; /* Darker shade on hover */
+  }
+
+  /* Styling for login link on desktop */
+  .login-link {
+    font-size: 1.5rem; /* Larger font size for login link */
+  }
+
+  /* Footer styling for desktop */
+  footer {
+    margin-top: 90px; /* Add top margin to footer */
+  }
+}
