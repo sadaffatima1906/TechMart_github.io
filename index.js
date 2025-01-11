@@ -11,9 +11,10 @@ const app = express(); // Creating an instance of the Express application
 const port = 4000; // Defining the port on which the server will run
 
 app.use(cors({
-    origin: 'https://tech-mart-github-pthgu1fiu-sadaffatima1906s-projects.vercel.app', // Replace with your frontend URL
+    origin: '*',  // Temporarily allow all origins for debugging
     methods: ['GET', 'POST'],
 }));
+
 app.use(express.json()); // Parsing incoming JSON data
 app.use('/api/user', userRoutes); // Setting up user routes under '/api/user'
 app.use('/api/contact', contactRoutes); // Setting up contact routes under '/api/contact'
