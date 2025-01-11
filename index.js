@@ -10,7 +10,13 @@ dotenv.config(); // Loading environment variables from the .env file
 const app = express(); // Creating an instance of the Express application
 const port = 4000; // Defining the port on which the server will run
 
-app.use(cors()); // Enabling CORS for the app
+const frontendURL = "https://tech-mart-github-80xg9p3s1-sadaffatima1906s-projects.vercel.app"; // Frontend URL
+
+app.use(cors({
+    origin: frontendURL, // Allow requests from your frontend
+    methods: ['GET', 'POST'], // Allow only GET and POST methods
+}));
+
 app.use(express.json()); // Parsing incoming JSON data
 app.use('/api/user', userRoutes); // Setting up user routes under '/api/user'
 app.use('/api/contact', contactRoutes); // Setting up contact routes under '/api/contact'
