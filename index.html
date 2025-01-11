@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Metadata for character encoding and responsive design -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Page title -->
+  <title>E-Commerce Website</title>
+
+  <!-- Link to Font Awesome library for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="/Frontend/styles.css">
+</head>
+
+<body>
+  <!-- Header section containing the navigation bar -->
+  <header>
+    <nav class="navbar">
+      <!-- Mobile menu icon (hamburger menu) -->
+      <dic class="menu-icon" onclick="toggleMenu()">
+        <!-- Three lines for the menu icon -->
+        <div></div>
+        <div></div>
+        <div></div>
+      </dic>
+
+      <!-- Logo of the website -->
+      <div class="logo">TechMart</div>
+
+      <!-- Navigation links -->
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li> <!-- Link to home section -->
+        <li><a href="#about">About Us</a></li> <!-- Link to about us section -->
+        <li><a href="#products">Products</a></li> <!-- Link to products section -->
+        <li><a href="#contact">Contact</a></li> <!-- Link to contact section -->
+      </ul>
+
+      <!-- Icons section -->
+      <div class="icons">
+        <!-- Shopping cart icon with cart count -->
+        <a href="#cart" class="icon cart-icon" aria-label="Cart">
+          <i class="fas fa-shopping-cart"></i> <!-- Font Awesome shopping cart icon -->
+          <span id="cartCount" class="cart-count">0</span> <!-- Display cart item count -->
+        </a>
+
+        <!-- User menu section -->
+        <div class="user-menu">
+          <!-- User icon -->
+          <a href="#" id="userIcon" class="icon user-icon" aria-label="User">
+            <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+          </a>
+
+          <!-- Dropdown menu for user actions -->
+          <ul class="dropdown" id="dropdownMenu">
+            <li><a href="/Frontend/signup.html">Sign Up</a></li> <!-- Link to sign-up page -->
+            <li><a href="/Frontend/login.html">Log In</a></li> <!-- Link to log-in page -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Add Font Awesome CDN for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <!-- Main heading for the welcome message -->
+    <h1>Welcome to TechMart</h1>
+
+    <!-- Short description or tagline -->
+    <p>Your one-stop shop for all things amazing!</p>
+
+    <!-- Call-to-action button linking to the sign-up/log-in page -->
+    <a href="/Frontend/signup.html" class="cta-btn">Sign Up / Log In</a>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about section" id="about">
+    <!-- Container for the "About Us" content -->
+    <div class="container about-container">
+      <!-- Text content describing the company's mission and values -->
+      <div class="about-text">
+        <!-- Section heading -->
+        <h2>About Us</h2>
+
+        <!-- Paragraph with a highlighted company name -->
+        <p>
+          At <span class="highlight">TechMart</span>, we are committed to delivering the finest products to make your
+          life easier and more stylish. With a passion for excellence, we provide products that combine quality, value,
+          and innovation.
+        </p>
+
+        <!-- Additional information about the company's offerings -->
+        <p>
+          Whether you're looking for the latest tech gadgets or timeless accessories, ShopEase has you covered.
+        </p>
+      </div>
+
+      <!-- Image representing the "About Us" section -->
+      <div class="about-image">
+        <img src="/Frontend/Images/about-us.jpg" alt="About Us"> <!-- Image source and alt text -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products" id="products">
+    <!-- Container for products section -->
+    <div class="container">
+      <!-- Section heading -->
+      <h2>Our Featured Products</h2>
+
+      <!-- Scrollable container for product cards -->
+      <div class="product-scroll">
+
+        <!-- Product Card 1 -->
+        <div class="product-card">
+          <!-- Product image -->
+          <img src="/Frontend/Images/smartphone.jpeg" alt="Smartphone Pro">
+          <!-- Product name -->
+          <h3>Smartphone Pro</h3>
+          <!-- Product price -->
+          <p>$999</p>
+          <!-- Button to purchase the product -->
+          <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="product-card">
+          <img src="/Frontend/Images/wireless-headphones.jpg" alt="Wireless Headphones">
+          <h3>Wireless Headphones</h3>
+          <p>$199</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card">
+          <img src="/Frontend/Images/smartwatch.jpg" alt="Smartwatch">
+          <h3>Smartwatch</h3>
+          <p>$299</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="product-card">
+          <img src="/Frontend/Images/gaming-laptop.jpg" alt="Gaming Laptop">
+          <h3>Gaming Laptop</h3>
+          <p>$1299</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <!-- Additional Product Cards -->
+        <div class="product-card">
+          <img src="/Frontend/Images/bluetooth-speaker.jpg" alt="Bluetooth Speaker">
+          <h3>Bluetooth Speaker</h3>
+          <p>$89</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="/Frontend/Images/tablet-pro.jpg" alt="Tablet Pro">
+          <h3>Tablet Pro</h3>
+          <p>$799</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="/Frontend/Images/drone-camera.jpg" alt="Drone Camera">
+          <h3>Drone Camera</h3>
+          <p>$499</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="/Frontend/Images/vr-headset.jpg" alt="VR Headset">
+          <h3>VR Headset</h3>
+          <p>$299</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <!-- Section heading -->
+    <h2>Our Gallery</h2>
+
+    <!-- Grid layout for gallery images -->
+    <div class="gallery-grid">
+      <!-- Gallery images with alt text for accessibility -->
+      <img src="/Frontend/Images/gallery-1.jpg" alt="Product 1">
+      <img src="/Frontend/Images/gallery-2.jpg" alt="Product 2">
+      <img src="/Frontend/Images/gallery-3.jpg" alt="Product 3">
+      <img src="/Frontend/Images/gallery-4.jpg" alt="Product 4">
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section class="contact section" id="contact">
+    <!-- Container for contact section content -->
+    <div class="container">
+      <!-- Section heading -->
+      <h2>Contact Us</h2>
+      <!-- Brief description of the contact section -->
+      <p>We’re here to help! Reach out to us with your queries.</p>
+
+      <!-- Contact form container -->
+      <div class="contact-form">
+        <!-- Contact form -->
+        <form id="contactForm">
+          <!-- Name input field -->
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required>
+          </div>
+          <!-- Email input field -->
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Your Email" required>
+          </div>
+          <!-- Message textarea field -->
+          <div class="form-group">
+            <textarea id="message" placeholder="Your Message" required></textarea>
+          </div>
+          <!-- Submit button -->
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <!-- Container for footer content -->
+    <div class="container">
+      <!-- Copyright text -->
+      <p>&copy; 2025 TechMart. All rights reserved.</p>
+
+      <!-- Social media links -->
+      <ul class="social-links">
+        <!-- Facebook link with accessible aria-label -->
+        <li><a href="#"><i class="fab fa-facebook-f" aria-label="Facebook"></i></a></li>
+        <!-- Twitter link with accessible aria-label -->
+        <li><a href="#"><i class="fab fa-twitter" aria-label="Twitter"></i></a></li>
+        <!-- Instagram link with accessible aria-label -->
+        <li><a href="#"><i class="fab fa-instagram" aria-label="Instagram"></i></a></li>
+        <!-- LinkedIn link with accessible aria-label -->
+        <li><a href="#"><i class="fab fa-linkedin-in" aria-label="LinkedIn"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Ensure the DOM is fully loaded before running the script
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get references to the user icon and dropdown menu elements
+      const userIcon = document.getElementById('userIcon');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+
+      // Event listener for toggling the dropdown menu visibility
+      userIcon.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent the click event from propagating to the document
+        dropdownMenu.classList.toggle('show'); // Add or remove the 'show' class to toggle visibility
+      });
+
+      // Event listener to close the dropdown menu when clicking outside
+      document.addEventListener('click', (event) => {
+        // Check if the click is outside the dropdown menu
+        if (!dropdownMenu.contains(event.target)) {
+          dropdownMenu.classList.remove('show'); // Remove the 'show' class to hide the menu
+        }
+      });
+    });
+  </script>
+
+  <!-- Scripts -->
+  <!-- Link to the external JavaScript file -->
+  <script src="/Frontend/script.js"></script>
+
+</body>
+
+</html>
