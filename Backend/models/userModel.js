@@ -26,6 +26,15 @@ const userSchema = new mongoose.Schema({
         type: String, // Data type is String
         required: true // This field is mandatory
     },
+    phone: {
+        type: String, // Data type is String
+        required: true, // This field is mandatory
+        unique: true // This field must be unique across the collection
+    },
+    dateOfBirth: {
+        type: Date, // Data type is Date
+        required: true // This field is mandatory
+    }
 });
 
 // Create and export the User model based on the schema
