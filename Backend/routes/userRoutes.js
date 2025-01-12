@@ -5,11 +5,11 @@ const router = express.Router(); // Creating a new router instance
 // Sign up route
 router.post('/', async (req, res) => {
   // Destructuring the request body to get name, email, password, and First_name
-  const { name, email, password, First_name } = req.body;
+  const { name, email, password, First_name, phone, dateOfBirth } = req.body;
   
   try {
     // Creating a new user using the provided data
-    const newUser = new User({ name, email, password, First_name });
+    const newUser = new User({ name, email, password, First_name, phone, dateOfBirth});
     
     // Saving the new user to the database
     await newUser.save();
