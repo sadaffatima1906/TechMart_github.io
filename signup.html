@@ -71,6 +71,14 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
       </div>
+      <div class="form-group">
+        <label for="tel">Phone Number</label>
+        <input type="tel" id="signup-phone" name="tel" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Date Of Birth</label>
+        <input type="date" id="signup-dob" name="date" required>
+      </div>
       <!-- Submit Button and Link to Log In Page -->
       <div class="form-group">
         <button type="submit">Sign Up</button>
@@ -105,6 +113,8 @@
       const username = document.getElementById('username').value;
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
+      const phone = document.getElementById('signup-phone').value;
+      const dateOfBirth = document.getElementById('signup-dob').value;
 
       // Send POST request to the server to create a new user
       const response = await fetch('http://localhost:4000/api/user', {
@@ -116,7 +126,9 @@
           name: username,
           email,
           password,
-          First_name: username, // Use the username as first name (or modify according to your backend logic)
+          First_name: username,
+          phone,
+          dateOfBirth
         }),
       });
 
